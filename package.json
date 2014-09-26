@@ -1,18 +1,37 @@
 {
-  "name": "jquery-sticky-table-headers",
-  "description": "jQuery sticky table headers plugin",
+  "name": "stickyNg",
+  "version": "1.2.1",
+  "homepage": "https://github.com/charosez/StickyTableHeaders",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charosez/StickyTableHeaders"
+  },
+  "authors": [
+    {
+      "name": "Charles Tai",
+      "email": "<cwtai86@gmail.com>",
+      "homepage": "https://github.com/charosez/StickyTableHeaders"
+    }
+  ],
+  "description": "A angular directive that makes large tables more usable by having the table header stick to the top of the screen when scrolling.",
+  "main": "js/stickyNg",
   "keywords": [
     "jquery",
     "sticky",
     "table",
-    "headers"
+    "headers",
+    "angular",
+    "directive"
   ],
-  "repository": "https://github.com/jmosbech/StickyTableHeaders",
-  "author": "Jonas Mosbech <https://github.com/jmosbech>",
-  "version": "0.1.12",
-  "devDependencies": {
-    "grunt": "0.4.0",
-    "grunt-contrib-jshint": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.0"
-  }
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0",
+    "angular": "~1.2.25"
+  },
+  "private": false
 }

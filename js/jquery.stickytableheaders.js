@@ -195,7 +195,7 @@
                 // select for header cells, (removed caching so that we select for CURRENT cells each time)
                 base.$originalHeaderCells = $('th,td', base.$originalHeader);
                 base.$clonedHeaderCells = $('th,td', base.$clonedHeader);
-                console.log('clonedHeaderCells:', base.$clonedHeaderCells);
+//                console.log('clonedHeaderCells:', base.$clonedHeaderCells);
                 var cellWidths = base.getWidth(base.$clonedHeaderCells);
                 // set with of base
                 base.setWidth(cellWidths, base.$clonedHeaderCells, base.$originalHeaderCells);
