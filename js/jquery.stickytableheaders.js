@@ -56,7 +56,7 @@
                     base.$clonedHeader.css('display', 'none');
                     // add tableFloatingHeaderOriginal to original header
                     base.$originalHeader.addClass('tableFloatingHeaderOriginal');
-                    // insert cloned header element after original header ?
+                    // insert cloned header element after original header
                     base.$originalHeader.after(base.$clonedHeader);
 
                     base.$printStyle = $('<style type="text/css" media="print">' +
@@ -149,21 +149,29 @@
                             });
                             base.leftOffset = newLeft;
                             base.topOffset = newTopOffset;
-                            // remove cloned header
+                            // show cloned header
                             base.$clonedHeader.css('display', '');
                             if (!base.isSticky) {
 
                                 base.isSticky = true;
+
                                 // make sure the width is correct: the user might have resized the browser while in static mode
-                                base.updateWidth(); // sets size to clonedHeader width
+                                base.updateWidth(); // sets originalHeader size to clonedHeader width
+
+                                // fixes collapsible bug where cloned header is not collapsed
+                                var originalDisplay = base.$originalHeader.find('.gl-reports-achievement-header-info').css('display').toLowerCase();
+                                // check if original is collapsed
+                                if (originalDisplay === 'none') {
+                                  base.$clonedHeader.find('.gl-reports-achievement-header-info').css('display','none');
+                                }
                             }
                             base.setPositionValues(); // calculates position
-                        } else if (base.isSticky) {
+                        } else if (base.isSticky) { // if was sticky, and scroll back past top, then set back to original
                             // sets original position to static
                             base.$originalHeader.css('position', 'static');
                             // sets clone to display none
                             base.$clonedHeader.css('display', 'none');
-                            // set base back to none sticky
+                            // set base back to non sticky
                             base.isSticky = false;
                             // set width of originalHeader to width of current element ??
                             base.resetWidth($('td,th', base.$clonedHeader), $('td,th', base.$originalHeader));
@@ -193,6 +201,7 @@
                     return;
                 }
                 // select for header cells, (removed caching so that we select for CURRENT cells each time)
+
                 base.$originalHeaderCells = $('th,td', base.$originalHeader);
                 base.$clonedHeaderCells = $('th,td', base.$clonedHeader);
 //                console.log('clonedHeaderCells:', base.$clonedHeaderCells);
