@@ -1,8 +1,8 @@
-/*! Copyright (c) 2011 by Jonas Mosbech - https://github.com/jmosbech/StickyTableHeaders
-	MIT license info: https://github.com/jmosbech/StickyTableHeaders/blob/master/license.txt */
+    /*! Copyright (c) 2011 by Jonas Mosbech - https://github.com/jmosbech/StickyTableHeaders
+  MIT license info: https://github.com/jmosbech/StickyTableHeaders/blob/master/license.txt */
 
 ;(function ($, window, undefined) {
-	'use strict';
+  'use strict';
     $(function() {
         var name = 'stickyTableHeaders',
             id = 0,
@@ -159,7 +159,7 @@
                                 base.updateWidth(); // sets originalHeader size to clonedHeader width
 
                                 // fixes collapsible bug where cloned header is not collapsed
-                                var originalDisplay = base.$originalHeader.find('.gl-reports-achievement-header-info').css('display').toLowerCase();
+                                var originalDisplay = base.$originalHeader.find(base.options.collapseClass).css('display').toLowerCase();
                                 // check if original is collapsed
                                 if (originalDisplay === 'none') {
                                   base.$clonedHeader.find('.gl-reports-achievement-header-info').css('display','none');
