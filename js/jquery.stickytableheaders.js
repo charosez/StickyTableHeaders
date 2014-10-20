@@ -159,10 +159,16 @@
                                 base.updateWidth(); // sets originalHeader size to clonedHeader width
 
                                 // fixes collapsible bug where cloned header is not collapsed
-                                var originalDisplay = base.$originalHeader.find(base.options.collapseClass).css('display').toLowerCase();
-                                // check if original is collapsed
-                                if (originalDisplay === 'none') {
-                                  base.$clonedHeader.find(base.options.collapseClass).css('display','none');
+                                if (base.options.collapseClass) {
+                                    var originalDisplay = base.$originalHeader.find(base.options.collapseClass);
+                                    if (originalDisplay) {
+                                        originalDisplay = originalDisplay.css('display').toLowerCase();
+                                        // check if original is collapsed
+                                        if (originalDisplay === 'none') {
+                                          base.$clonedHeader.find(base.options.collapseClass).css('display','none');
+                                        }
+                                    }
+
                                 }
                             }
                             base.setPositionValues(); // calculates position
