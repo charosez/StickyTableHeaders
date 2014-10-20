@@ -162,7 +162,7 @@
                                 var originalDisplay = base.$originalHeader.find(base.options.collapseClass).css('display').toLowerCase();
                                 // check if original is collapsed
                                 if (originalDisplay === 'none') {
-                                  base.$clonedHeader.find('.gl-reports-achievement-header-info').css('display','none');
+                                  base.$clonedHeader.find(base.options.collapseClass).css('display','none');
                                 }
                             }
                             base.setPositionValues(); // calculates position
